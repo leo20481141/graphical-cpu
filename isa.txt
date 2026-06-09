@@ -1,5 +1,3 @@
-
-
 0000000 add dst s1 s2
 0000001 sub dst s1 s2
 0000010 mul dst s1 s2
@@ -13,8 +11,8 @@
 0001001 or dst s1 s2
 0001010 xor dst s1 s2
 0001011 andor dst s1 s2 s3
-0001100 orand dst s1 s2 s3
-0001101 aoa dst s1 s2 s3 s4
+0001100 aoa dst s1 s2 s3 s4
+0001101 aoo dst s1 s2 s3 s4
 0001110 sl dst s1 s2
 0001111 sr dst s1 s2
 
@@ -46,96 +44,45 @@
 0100111 nstr [dst] s1 s2 {ddiff}
 
 0101000 branch {dst}
-0101001
-0101010 bz {dst} src
-0101011 bnz {dst} src
-0101100 bp {dst} src
-0101101 bn {dst} src
-0101110 call {dst}
+0101001 bz {dst} src
+0101010 bnz {dst} src
+0101011 bp {dst} src
+0101100 bn {dst} src
+0101101 call {dst}
+0101110 callr [dst]
 0101111 ret
 
-0110000 tzmov dst s1 s2 s3
-0110001 tnzmov dst s1 s2 s3
-0110010 tpmov dst s1 s2 s3
-0110011 tnmov dst s1 s2 s3
-0110100 tzload dst [s1] [s2] s3
-0110101 tnzload dst [s1] [s2] s3
-0110110 tpload dst [s1] [s2] s3
-0110111 tnload dst [s1] [s2] s3
+0110000 addi dst s1 {s2}
+0110001 subi dst s1 {s2}
+0110010 muli dst s1 {s2}
+0110011 divi dst s1 {s2}
+0110100 addio d1 d2 s1 {s2}
+0110101 subiu d1 d2 s1 {s2}
+0110110 mulio d1 d2 s1 {s2}
+0110111 modi dst s1 {s2}
 
-0111000 tzstr [dst] s1 s2 s3
-0111001 tnzstr [dst] s1 s2 s3
-0111010 tpstr [dst] s1 s2 s3
-0111011 tnstr [dst] s1 s2 s3
-0111100 tbz {d1} {d2} src
-0111101 tbnz {d1} {d2} src
-0111110 tbp {d1} {d2} src
-0111111 tbn {d1} {d2} src
+0111000 andi dst s1 {s2}
+0111001 ori dst s1 {s2}
+0111010 xori dst s1 {s2}
+0111100 sli dst s1 {s2}
+0111101 sri dst s1 {s2}
+0111110 movi dst {src}
+0111111 pushi {src}
 
-1000000 addi dst s1 {s2}
-1000001 subi dst s1 {s2}
-1000010 muli dst s1 {s2}
-1000011 divi dst s1 {s2}
-1000100 addio d1 d2 s1 {s2}
-1000101 subiu d1 d2 s1 {s2}
-1000110 mulio d1 d2 s1 {s2}
-1000111 modi dst s1 {s2}
+1000000 zmovi dst {s1} s2
+1000001 nzmovi dst {s1} s2
+1000010 pmovi dst {s1} s2
+1000011 nmovi dst {s1} s2
+1000100 sl1 dst src
+1000101 sl2 dst src
+1000110 sl4 dst src
+1000111 sl8 dst src
 
-1001000 andi dst s1 {s2}
-1001001 ori dst s1 {s2}
-1001010 xori dst s1 {s2}
-1001011 andori dst s1 s2 {s3}
-1001100 orandi dst s1 s2 {s3}
-1001101 aoai dst s1 {s2} s3 {s4}
-1001110 sli dst s1 {s2}
-1001111 sri dst s1 {s2}
-
-1010000 movi dst {src}
-1010001 pushi {src}
-1010010
-1010011
-1010100
-1010101
-1010110
-1010111
-
-1011000 zeroi dst {src}
-1011001 nzeroi dst {src}
-1011010 posi dst {src}
-1011011 negi dst {src}
-1011100 zmovi dst {s1} s2
-1011101 nzmovi dst {s1} s2
-1011110 pmovi dst {s1} s2
-1011111 nmovi dst {s1} s2
-
-1100000 tzmovi dst {s1} {s2} s3
-1100001 tnzmovi dst {s1} {s2} s3
-1100010 tpmovi dst {s1} {s2} s3
-1100011 tnmovi dst {s1} {s2} s3
-1100100
-1100101
-1100110
-1100111
-
-1101000
-1101001
-1101010
-1101011
-1101100
-1101101
-1101110
-1101111
-
-1110000 sl1 dst src
-1110001 sl2 dst src
-1110010 sl4 dst src
-1110011 sl8 dst src
-1110100 sl16 dst src
-1110101 sr1 dst src
-1110110 sr2 dst src
-1110111 sr4 dst src
-
-1111000 sr8 dst src
-1111001 sr16 dst src
-1111010 rand dst
-1111011 dstep o1 o2 o3
+1001000 sl16 dst src
+1001001 sr1 dst src
+1001010 sr2 dst src
+1001011 sr4 dst src
+1001100 sr8 dst src
+1001101 sr16 dst src
+1001110 rand dst
+1001111 dstep o1 o2 o3
