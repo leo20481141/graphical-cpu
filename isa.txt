@@ -10,11 +10,11 @@
 0001000 and dst s1 s2
 0001001 or dst s1 s2
 0001010 xor dst s1 s2
-0001011 andor dst s1 s2 s3
-0001100 aoa dst s1 s2 s3 s4
-0001101 aoo dst s1 s2 s3 s4
-0001110 sl dst s1 s2
-0001111 sr dst s1 s2
+0001011 not dst src
+0001100 sl dst s1 s2
+0001101 sr dst s1 s2
+0001110 rl dst s1 s2
+0001111 rr dst s1 s2
 
 0010000 mov dst src
 0010001 load dst [src] {sdiff}
@@ -64,25 +64,40 @@
 0111000 andi dst s1 {s2}
 0111001 ori dst s1 {s2}
 0111010 xori dst s1 {s2}
+0111011 noti dst {src}
 0111100 sli dst s1 {s2}
 0111101 sri dst s1 {s2}
-0111110 movi dst {src}
-0111111 pushi {src}
+0111110 rli dst s1 {s2}
+0111111 rri dst s1 {s2}
 
-1000000 zmovi dst {s1} s2
-1000001 nzmovi dst {s1} s2
-1000010 pmovi dst {s1} s2
-1000011 nmovi dst {s1} s2
-1000100 sl1 dst src
-1000101 sl2 dst src
-1000110 sl4 dst src
-1000111 sl8 dst src
+1000000 movi dst {src}
+1000001 pushi {src}
+1000010 zmovi dst {s1} s2
+1000011 nzmovi dst {s1} s2
+1000100 pmovi dst {s1} s2
+1000101 nmovi dst {s1} s2
+1000110 rand dst
+1000111 halt
 
-1001000 sl16 dst src
-1001001 sr1 dst src
-1001010 sr2 dst src
-1001011 sr4 dst src
-1001100 sr8 dst src
-1001101 sr16 dst src
-1001110 rand dst
-1001111 dstep o1 o2 o3
+1001000 sl1 dst src
+1001001 sl2 dst src
+1001010 sl4 dst src
+1001011 sl8 dst src
+1001100 sl16 dst src
+1001101 sr1 dst src
+1001110 sr2 dst src
+1001111 sr4 dst src
+
+1010000 sr8 dst src
+1010001 sr16 dst src
+1010010 rl1 dst src
+1010011 rl2 dst src
+1010100 rl4 dst src
+1010101 rl8 dst src
+1010110 rl16 dst src
+1010111 rr1 dst src
+
+1011000 rr2 dst src
+1011001 rr4 dst src
+1011010 rr8 dst src
+1011011 rr16 dst src

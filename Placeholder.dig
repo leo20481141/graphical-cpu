@@ -26,7 +26,12 @@
     <visualElement>
       <elementName>Register.dig</elementName>
       <elementAttributes/>
-      <pos x="280" y="80"/>
+      <pos x="380" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GetRegisters.dig</elementName>
+      <elementAttributes/>
+      <pos x="280" y="20"/>
     </visualElement>
   </visualElements>
   <wires/>

@@ -1,0 +1,91 @@
+ARITHMETIC
+00000 00 add rd rs1 rs2
+00000 01 add rd rs1 rs2 overflow
+00000 10 add rd rs1 imm
+00000 11 add rd rs1 imm overflow
+
+00001 00 sub rd rs1 rs2
+00001 01 sub rd rs1 rs2 overflow
+00001 10 sub rd rs1 imm ;imm - rs1
+00001 11 sub rd rs1 imm overflow ;imm - rs1
+
+00010 00 mul rd rs1 rs2
+00010 01 mul rd rs1 rs2 overflow
+00010 10 mul rd rs1 imm
+00010 11 mul rd rs1 imm overflow
+
+00011 00 div rd rs1 rs2
+00011 01 div rd rs1 imm
+00011 10 div rd rs1 imm ;imm / rs1
+00011 11 fdiv rd rs1 rs2
+
+00100 00 sl rd rs1 rs2
+00100 01 sr rd rs1 rs2
+00100 10 rl rd rs1 rs2
+00100 11 rr rd rs1 rs2
+
+00101 00 sl rd rs1 imm
+00101 01 sr rd rs1 imm
+00101 10 rl rd rs1 imm
+00101 11 rr rd rs1 imm
+
+00110 00 sl rd rs1 imm ;imm << rs1
+00110 01 sr rd rs1 imm ;imm >> rs1
+00110 10 rl rd rs1 imm ;imm <<| rs1
+00110 11 rr rd rs1 imm ;imm >>| rs1
+
+LOGIC
+00111 00 and rd rs1 rs2
+00111 01 and rd rs1 imm
+00111 10 or rd rs1 rs2
+00111 11 or rd rs1 imm
+
+01000 00 xor rd rs1 rs2
+01000 01 xor rd rs1 imm
+01000 10 not rd rs1
+01000 11 rand rd
+
+01001 00 mov rd rs1
+01001 01 mov rd imm
+
+MEMORY
+01010 00 load rd rs1 imm ;rd = memory[rs1 + imm]
+01010 01 str rs1 rs2 imm ;memory[rs2 + imm] = rs1
+01010 10 push rs1
+01010 11 pop rd
+
+JUMPING
+01011 00 branch rs1
+01011 01 branch imm
+01011 10 call rs1
+01011 11 call imm
+
+CONDITIONALS
+01100 00 zmov rd rs1 rs2
+01100 01 nzmov rd rs1 rs2
+01100 10 pmov rd rs1 rs2
+01100 11 nmov rd rs1 rs2
+
+01101 00 zload rd rs1 rs2 imm ;if rs1 == 0: rd = memory[rs2 + imm]
+01101 01 nzload rd rs1 rs2 imm ;if rs1 != 0: rd = memory[rs2 + imm]
+01101 10 pload rd rs1 rs2 imm
+01101 11 nload rd rs1 rs2 imm
+
+01110 00 zstr rs1 rs2 rs3 imm ;if rs2 == 0: memory[rs3 + imm] = rs1
+01110 01 nzstr rs1 rs2 rs3 imm
+01110 10 pstr rs1 rs2 rs3 imm
+01110 11 nstr rs1 rs2 rs3 imm
+
+01111 00 bz rs1 rs2
+01111 01 bnz rs1 rs2
+01111 10 bp rs1 rs2
+01111 11 bn rs1 rs2
+
+10000 00 bz rs1 imm
+10000 01 bnz rs1 imm
+10000 10 bp rs1 imm
+10000 11 bn rs1 imm
+
+EXTRAS
+10001 00 ret
+10001 01 halt
